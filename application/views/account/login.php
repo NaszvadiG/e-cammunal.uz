@@ -43,6 +43,16 @@
 
 <div class="container">
 
+    <?php if ($this->session->flashdata('error')) { ?>
+
+        <p class='alert alert-danger alert-dismissible' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span
+                        aria-hidden='true'>×</span></button>
+            <?php echo $this->session->flashdata('error'); ?>
+        </p>
+
+    <?php } ?>
+
     <form class="form-signin" action="<?php echo site_url("/account/validate_credentials") ?>" method="post">
         <h2 class="form-signin-heading">Aдминистратор</h2>
 

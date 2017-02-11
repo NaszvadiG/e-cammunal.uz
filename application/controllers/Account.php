@@ -31,14 +31,12 @@ class Account extends CI_Controller
                     'is_logged_in' => true
                 );
                 $this->session->set_userdata($data);
-
-                redirect('admin/index');
             } else {
-                $this->login();
+                $this->session->set_flashdata('error', "Фойдаланувчи ёки парол нотугри киритилган");
             }
         }
 
-        $this->login();
+        redirect('account/login');
     }
 
     public function logout()

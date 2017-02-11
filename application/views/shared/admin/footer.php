@@ -13,7 +13,15 @@
 <script src="<?php echo asset_url('plugins/DataTables/js/dataTables.bootstrap.min.js'); ?>"></script>
 <script src="<?php echo asset_url('plugins/DataTables/js/dataTables.buttons.min.js'); ?>"></script>
 <script src="<?php echo asset_url('plugins/DataTables/js/buttons.flash.min.js'); ?>"></script>
-<script src="<?php echo asset_url('js/main.js'); ?>"></script>
-
+<script>
+    $(function () {
+        $('#example').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'excel'
+            ]
+        });
+    });
+</script>
 </body>
 </html>
