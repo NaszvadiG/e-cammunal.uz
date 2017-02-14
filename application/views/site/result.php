@@ -29,7 +29,6 @@
                     <a href="#" class="list-group-item">
                         <span class="badge">0</span>
                         Бажарилди</a>
-
                     <a href="#" class="list-group-item">
                         <span class="badge">0</span>
                         Умумий</a>
@@ -73,3 +72,53 @@
 
     </div>
 </div>
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Ҳал этилган мурожаатлардан мисоллар
+        </h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-responsive">
+            <thead>
+            <tr>
+                <th>Мурожаат мавзуси</th>
+                <th>Қабул қилинган сана</th>
+                <th>Кўриб чиқилган сана</th>
+                <th>Манзил</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><a href="#">Сув</a></td>
+                <td>25.11.2016</td>
+                <td>28.11.2016</td>
+                <td>Чилонзор тумани</td>
+            </tr>
+            <tr>
+                <td><a href="#">Газ</a></td>
+                <td>25.11.2016</td>
+                <td>28.11.2016</td>
+                <td>Юнусобот туман</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="bs-example" data-example-id="disabled-active-pagination">
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+

@@ -19,6 +19,7 @@ class Site extends CI_Controller
             'captchaConfig' => 'ExampleCaptcha'
         ));
 
+        $this->load->helper(array('form', 'url'));
     }
 
     public function index()
@@ -75,6 +76,13 @@ class Site extends CI_Controller
                 $this->session->set_flashdata('error', "Captcha коди нотогри");
             } else {
                 $this->load->model('Complaints_model');
+
+                $config['upload_path'] = './tmp/';
+                $this->load->library('upload', $config);
+                $file = $this->upload->data('file');
+
+                $_POST['file'] = $file;
+
                 $id = $this->complaint->insert_entry();
 
                 $this->session->set_flashdata('message', "Сизнинг мурожаатингиз қабул қилинди! Мурожаатнинг тартиб рақами " . $id);

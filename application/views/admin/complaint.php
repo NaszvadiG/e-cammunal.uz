@@ -14,14 +14,30 @@
 
 <?php } ?>
 
+<div class="row">
+
+    <form class="form-inline" action="<?php echo site_url("admin/complaint") ?>" method="get" id="filterFrm">
+
+        <label for="status">Статус</label>
+        <select id="status" class="form-control" name="status" onchange="$('#filterFrm').submit()">
+            <option value=""></option>
+            <option value="0">Кабул килинди</option>
+            <option value="1">Кайта ишланмокда</option>
+            <option value="2">Бажарилди</option>
+        </select>
+    </form>
+
+</div>
+<br>
+
 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
     <thead>
     <tr>
+        <th>Мавзу</th>
         <th>Шахсий</th>
-        <th>Адрес</th>
+        <th>Манзил</th>
         <th>Контакт</th>
         <th>Мурожаат матни</th>
-        <th>Статус</th>
         <th></th>
     </tr>
     </thead>
@@ -29,9 +45,14 @@
     <?php foreach ($query as $item): ?>
         <tr>
             <td>
+                <a href="<?php echo site_url('admin/complaint_view') ?>/<?= $item->id ?>"
+                   class="btn btn-link">
+                    <?php echo $item->mazmun; ?>
+                </a>
+            </td>
+            <td>
                 <?php echo $item->fish; ?> <br>
-                <?php echo $item->tugil_yil; ?> <br>
-                <?php echo $item->jins; ?>
+                <?php echo $item->tugil_yil; ?>
             </td>
             <td>
                 <?php echo $item->tuman; ?> <br>
@@ -46,16 +67,15 @@
                 <?php echo $item->matn; ?>
             </td>
             <td>
-                <?php if ($item->status == 1) { ?>
-                    <strong class="text-info">Кабул килинган</strong>
-                <?php } else { ?>
-                    <strong class="text-warning">Янги</strong>
-                    <br>
-                    <a href="<?php echo site_url('admin/complaint_active') ?>/<?= $item->id ?>"
-                       class="btn btn-link">Кабул килиш</a>
+                <?php if ($item->status == 3) { ?>
+                    <strong class="btn btn-success disabled">Бажарилди</strong>
+                <?php } elseif ($item->status == 2) { ?>
+                    <strong class="btn btn-info disabled">Кайта ишланмокда</strong>
+                <?php } elseif ($item->status == 1) { ?>
+                    <strong class="btn btn-primary disabled">Кабул килинди</strong>
+                <?php } elseif ($item->status == 0) { ?>
+                    <strong class="btn btn-warning disabled">Курилмаган</strong>
                 <?php } ?>
-            </td>
-            <td>
                 <a href="<?php echo site_url('admin/complaint_delete') ?>/<?= $item->id ?>"
                    class="btn btn-danger">Учириш</a>
             </td>

@@ -39,7 +39,8 @@
                 </div>
             </div>
 
-            <form class="form-horizontal" action="<?php echo site_url("site/send_complaint") ?>" method="post">
+            <form class="form-horizontal" action="<?php echo site_url("site/send_complaint") ?>"
+                  enctype="multipart/form-data" method="post">
 
                 <div class="form-group required">
                     <label for="fish" class="col-sm-4 control-label">Ф.И.О.</label>

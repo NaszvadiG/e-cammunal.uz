@@ -31,6 +31,8 @@ class Account extends CI_Controller
                     'is_logged_in' => true
                 );
                 $this->session->set_userdata($data);
+
+                redirect('admin/index');
             } else {
                 $this->session->set_flashdata('error', "Фойдаланувчи ёки парол нотугри киритилган");
             }
@@ -44,7 +46,7 @@ class Account extends CI_Controller
         $array_items = array('username', 'is_logged_in', 'tuman');
         $this->session->unset_userdata($array_items);
 
-        redirect('site/index');
+        redirect('admin/index');
     }
 
 }

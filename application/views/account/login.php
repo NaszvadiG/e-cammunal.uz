@@ -43,19 +43,19 @@
 
 <div class="container">
 
-    <?php if ($this->session->flashdata('error')) { ?>
-
-        <p class='alert alert-danger alert-dismissible' role='alert'>
-            <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span
-                        aria-hidden='true'>×</span></button>
-            <?php echo $this->session->flashdata('error'); ?>
-        </p>
-
-    <?php } ?>
-
     <form class="form-signin" action="<?php echo site_url("/account/validate_credentials") ?>" method="post">
         <h2 class="form-signin-heading">Aдминистратор</h2>
 
+        <?php if ($this->session->flashdata('error')) { ?>
+
+            <p class='alert alert-danger alert-dismissible' role='alert'>
+                <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span
+                            aria-hidden='true'>×</span></button>
+                <?php echo $this->session->flashdata('error'); ?>
+            </p>
+
+        <?php } ?>
+        
         <label for="tuman">Туман</label>
         <select id="tuman" name="tuman" class="form-control" required>
             <option value=""></option>
@@ -78,12 +78,17 @@
         <label for="userpass">Пароль</label>
         <input type="password" id="userpass" name="userpass" class="form-control" placeholder="Пароль" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Кириш</button>
+
+        <a href="<?php echo site_url('site/index'); ?>" class="btn btn-link">Бош сахифага кайтиш
+        </a>
     </form>
 
 </div> <!-- /container -->
 
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="<?php echo asset_url('js/jquery.min.js'); ?>"></script>
 <script src="<?php echo asset_url('js/ie10-viewport-bug-workaround.js'); ?>"></script>
+<script src="<?php echo asset_url('js/bootstrap.min.js'); ?>"></script>
 </body>
 </html>

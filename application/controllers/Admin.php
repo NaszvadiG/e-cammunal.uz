@@ -30,15 +30,18 @@ class Admin extends CI_Controller
     public function index()
     {
         $tuman = $this->session->userdata('tuman');
+        $data['title'] = "Администратор";
+        $data['description'] = "Хуш келибсиз " . $tuman . " тумани администратор булимига";
 
-        $data['title'] = $tuman . " тумани";
         $this->load->admin('admin/index', $data);
     }
 
     public function complaint()
     {
         $data['title'] = "Мурожаатлар";
-        $data['query'] = $this->complaint->get_all_entries();
+
+        $tuman = $this->session->userdata('tuman');
+        $data['query'] = $this->complaint->get_all_entries($tuman);
 
         $this->load->admin('admin/complaint', $data);
     }
@@ -51,10 +54,26 @@ class Admin extends CI_Controller
         redirect("admin/complaint");
     }
 
-    public function complaint_active($id)
+    public function complaint_status($id, $status)
     {
-        $this->complaint->active_entry($id);
-        $this->session->set_flashdata('message', "Мурожаат №" . $id . " кабул килинди");
+        $this->complaint->status_entry($id);
+        $name = "";
+
+        switch ($status) {
+            case 1:
+                $name = "Кабул килинди";
+                break;
+
+            case 2:
+                $name = "Кайта ишланмокда";
+                break;
+
+            case 3:
+                $name = "Бажарилди";
+                break;
+        }
+
+        $this->session->set_flashdata('message', "Мурожаат №" . $id . " - " . $name);
 
         redirect("admin/complaint");
     }
