@@ -19,18 +19,26 @@
                 <div class="list-group">
 
                     <a href="#" class="list-group-item">
-                        <span class="badge">0</span>
+                        <span class="badge">
+                            <?php echo $status1 ?>
+                        </span>
                         Кабул килинди</a>
 
                     <a href="#" class="list-group-item">
-                        <span class="badge">0</span>
+                        <span class="badge">
+                                <?php echo $status2 ?>
+                        </span>
                         Кайта ишланмокда</a>
 
                     <a href="#" class="list-group-item">
-                        <span class="badge">0</span>
+                        <span class="badge">
+                                <?php echo $status3 ?>
+                        </span>
                         Бажарилди</a>
                     <a href="#" class="list-group-item">
-                        <span class="badge">0</span>
+                        <span class="badge">
+                                <?php echo $total ?>
+                        </span>
                         Умумий</a>
 
                 </div>

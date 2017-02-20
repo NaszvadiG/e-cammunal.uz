@@ -54,6 +54,7 @@ class Complaints_model extends CI_Model
         return $this->db->insert('complaints', $this);
     }
 
+
     public function status_entry($id, $status)
     {
         $ent = $this->get_entry($id);
@@ -80,6 +81,13 @@ class Complaints_model extends CI_Model
         }
 
         $this->db->update('complaints', $ent, array('id' => $id));
+    }
+
+    public function count_entries_status($status)
+    {
+        $query = $this->db->get_where('complaints', array('status' => $status));
+
+        return $query->num_rows();
     }
 
     public function delete_entry($id)

@@ -45,6 +45,15 @@ class Site extends CI_Controller
         $data['result_active'] = true;
         $data['captchaHtml'] = $this->botdetectcaptcha->Html();
 
+        $this->load->model('Complaints_model');
+
+        //status
+        $data["status1"] = $this->complaint->count_entries_status(1);
+        $data["status2"] = $this->complaint->count_entries_status(2);
+        $data["status3"] = $this->complaint->count_entries_status(3);
+        $data["total"] = $data["status1"] + $data["status2"] + $data["status3"];
+
+
         $this->load->site('site/result', $data);
     }
 
